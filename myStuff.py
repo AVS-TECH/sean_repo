@@ -36,7 +36,10 @@ class Game:
     if click == "":
       self.player.money += self.player.mpc
     elif click == "s":
-      self.shop()
+        self.shop()
+    elif click == "q":
+        print("hi")
+        sys.exit()
     elif click == "asdfghjkl":
       self.player.money += 100000000000
     else:
