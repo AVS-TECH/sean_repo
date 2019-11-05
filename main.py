@@ -1,7 +1,7 @@
 import myStuff
 import os
 from threading import Thread
-mps = 10
+mps = 0
 mpc = 1
 money = 0
 cost1 = 300
