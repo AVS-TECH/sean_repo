@@ -22,6 +22,7 @@ def otherDisplay():
     while(True):
         os.system("cls")
         game.mainMenu()
+        time.sleep(1)
 def play():
 
   Thread(target = game.moneyPerSecond).start()
