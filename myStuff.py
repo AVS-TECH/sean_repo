@@ -17,10 +17,11 @@ class player:
 
 '''THE GAME'''
 class Game:
-  def __init__(self,costA,costB,player):
+  def __init__(self,costA,costB,player,click):
     self.player = player
     self.costA = costA
     self.costB = costB
+    self.click = click
   def moneyPerSecond(self):
       while(True):
           time.sleep(1)
@@ -30,13 +31,49 @@ class Game:
       print("your money is: $", self.player.money)
       print("Money per click: $",self.player.mpc)
       print("Money per second: $",self.player.mps)
-      print("s for shop")
+      if click != "shop"
+        print("s for shop")
+    elif click == "shop"
+        buy = "a"
+        while(buy != "e"):
+          self.costA = myRound(self.costA)
+          self.costB = myRound(self.costB)
+          print("your money is: $",self.player.money)
+          print("Money per click: $",self.player.mpc)
+          print("Money per second: $",self.player.mps)
+          print("(e) for exit")
+          print("(a) to buy more money per click $",self.costA)
+          print("(b) to buy more money per second $",self.costB)
+          buy = input()
+          if (buy == "a" or buy == "A") and self.player.money >= self.costA:
+            self.player.mpc += 1
+            self.player.money -= self.costA
+            self.costA *= 1.25
+            print("succesfully purchased!")
+            time.sleep(0.2)
+            os.system("cls")
+          elif (buy == "b" or buy == "B") and self.player.money >= self.costB:
+            self.player.mps += 1
+            self.player.money -= self.costB
+            self.costB *= 1.25
+            print("succesfully purchased!")
+            time.sleep(0.2)
+            os.system("cls")
+          elif ((buy =="a" or buy == "A") and (self.player.money < self.costA)) or ((buy =="b" or buy =="B") and (self.player.money <self.costB)):
+            print("you don't have enough money.")
+            time.sleep(1)
+            os.system("cls")
+          elif buy != "e":
+            print("that is not a  valid input")
+            time.sleep(1)
+            os.system("cls")
   def clickInput(self):
     click = input()
     if click == "":
       self.player.money += self.player.mpc
     elif click == "s":
-        self.shop()
+        self.click = "shop"
+
     elif click == "q":
         print("hi")
         sys.exit()
@@ -49,36 +86,3 @@ class Game:
 
   def shop(self):
     os.system("cls")
-    buy = "a"
-    while(buy != "e"):
-      self.costA = myRound(self.costA)
-      self.costB = myRound(self.costB)
-      print("your money is: $",self.player.money)
-      print("Money per click: $",self.player.mpc)
-      print("Money per second: $",self.player.mps)
-      print("(e) for exit")
-      print("(a) to buy more money per click $",self.costA)
-      print("(b) to buy more money per second $",self.costB)
-      buy = input()
-      if (buy == "a" or buy == "A") and self.player.money >= self.costA:
-        self.player.mpc += 1
-        self.player.money -= self.costA
-        self.costA *= 1.25
-        print("succesfully purchased!")
-        time.sleep(0.2)
-        os.system("cls")
-      elif (buy == "b" or buy == "B") and self.player.money >= self.costB:
-        self.player.mps += 1
-        self.player.money -= self.costB
-        self.costB *= 1.25
-        print("succesfully purchased!")
-        time.sleep(0.2)
-        os.system("cls")
-      elif ((buy =="a" or buy == "A") and (self.player.money < self.costA)) or ((buy =="b" or buy =="B") and (self.player.money <self.costB)):
-        print("you don't have enough money.")
-        time.sleep(1)
-        os.system("cls")
-      elif buy != "e":
-        print("that is not a  valid input")
-        time.sleep(1)
-        os.system("cls")
